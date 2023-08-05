@@ -3,7 +3,6 @@ const tabContensItems=document.querySelectorAll('.tab-content-item');
 
 
 
-
 function selectitem (e){
     removeborder();
     removeShow();
