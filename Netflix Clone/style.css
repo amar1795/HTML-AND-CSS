@@ -1,5 +1,7 @@
 :root{
     --primary-color:#e50914;
+    --dark-color:#141414;
+    
 }
 
 *{
@@ -53,6 +55,7 @@ img{
     height: 100%;
     z-index: 1;
     background-color: rgba(0,0, 0, 0.6);
+    box-shadow: inset 120px 100px 250px #000000;
 
 }
 
@@ -140,4 +143,22 @@ img{
 .btn-lg{
     font-size: 1rem;
     padding: 0.8rem 1.3rem;
+ }
+
+/* tabs */
+ .tabs{
+    background-color: var(--dark-color);
+    padding-top: 1rem;
+    border-bottom: 3px solid #3d3d3d;
+
+ }
+
+ /* need to give space between 2 classes when targetting */
+ .tabs .container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
  }
