@@ -79,5 +79,23 @@ img{
     outline: none;
     box-shadow: 0 1px 0 rgba(0,0, 0, 45);
     border-radius: 2px;
+    text-transform: uppercase;
 
+}
+
+.btn:hover{
+    opacity: 0.9;
+}
+
+.btn-rounded{
+    border-radius: 5px;
+}
+
+.btn-xl{
+    font-size: 2rem;
+    padding: 1.5rem 2.1rem;
+}
+.btn-lg{
+    font-size: 1rem;
+    padding: 0.8rem 1.3rem;
 }
