@@ -17,6 +17,16 @@ body{
     color: #fff;
 }
 
+/* hiding the contents initially*/
+#tab-1-content,#tab-2-content,#tab-3-content{
+    display: none;
+}
+
+/* !Important overrides and forces and property to be includes or we can say it gives more precedence to the property */
+.show{
+    display: block !important;
+}
+
 ul{
     list-style: none;
 }
