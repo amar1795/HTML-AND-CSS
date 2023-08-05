@@ -4,11 +4,13 @@
     
 }
 
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 
 body{
     font-family: Arial, sans-serif;
@@ -33,6 +35,7 @@ a{
 /* by default root size is 16pixels */
 p{
     margin: 0.5rem 0;
+    color: #A0A0A0;
 }
 img{
     width: 100%;
@@ -102,7 +105,7 @@ img{
 
 .showcase-content p{
     text-transform: uppercase;
-    /* color: #fff; */
+    color: #fff;
     font-weight: 400;
     font-size: 1.9rem;
     line-height:1.25;
@@ -127,6 +130,8 @@ img{
     text-transform: uppercase;
 
 }
+
+
 
 .btn:hover{
     opacity: 0.9;
@@ -153,6 +158,16 @@ img{
 
  }
 
+ .tab-content{
+    padding: 3rem;
+    background: var(--dark-color);   
+ }
+
+ .tab-content p{
+    color: #fff;
+
+ }
+
  /* need to give space between 2 classes when targetting */
  .tabs .container{
     display: grid;
@@ -162,3 +177,125 @@ img{
     justify-content: center;
     text-align: center;
  }
+
+ .tabs p{
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+ }
+
+ /* container */
+
+ .container{
+    max-width: 85%;
+    margin: auto;
+    /* with margin auto it will be centered taking 70% of width */
+    overflow: hidden;
+    padding: 0 2rem;
+ }
+
+ .tabs .container > div {
+    padding: 1.5rem 0;
+    color: #a19999;
+ }
+
+.tabs .container > div:hover {
+    color: #fff;
+   cursor: pointer;
+ }
+
+ .tab-div{
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+ }
+
+ /* #tab-1 >div{
+    font-size: 1.2rem;
+    padding-top: 1.5rem;
+ } */
+
+
+ .tab-border{
+    border-bottom: var(--primary-color) 4px solid;
+ }
+
+
+
+ /* another method of doing it  */
+/* #tab-2{
+    padding: 1.5rem 0;
+} */
+
+
+#tab-1-content .tab-1-content-inner{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 2rem;
+}
+
+
+#tab-2-content .tab-2-content-top{
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+#tab-2-content .tab-2-content-bottom{
+    display: grid;
+    grid-gap: 1rem;
+    margin-top: 1.5rem;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* text-styles */
+
+.text-xl{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.text-lg{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.text-dark{
+    color: #999;
+}
+
+.text-md{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+
+.table{
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table thead th{
+    text-transform: uppercase;
+    padding: 0.8rem;
+}
+
+.table tbody tr td {
+    color: #999;
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+}
+
+.table tbody tr td:first-child {
+   text-align: left;
+}
+
+.table tbody tr:nth-child(odd) {
+   background: #222;
+}
