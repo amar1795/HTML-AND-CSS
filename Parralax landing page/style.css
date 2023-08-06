@@ -163,3 +163,47 @@ section{
     margin: auto; */
 }
 
+/* mobile devices responsive */
+
+@media(max-width:800px)
+{
+    .section-top .content, .section-stream .play,.section-stream .content{
+        position: static;
+        width: 100%;
+    }
+
+    .section-top {
+        min-height: 200px;
+        padding-top: 20px;
+    }
+
+    .section-top .content{
+        text-align: center;
+        display: block;
+        margin: auto;
+        
+      
+    }
+    .section-top .content h1 {
+        font-size: 45px;
+        font-weight: normal;
+    }
+
+    .section-stream{
+        min-height: 400px;
+
+    }
+    .section-stream .play{
+        width: 50%;
+        display: block;
+        margin: 30px auto;
+    }
+
+    .section-grid{
+        display: block;
+        margin-top: 0;
+    }
+    .footer ul{
+        display: block;
+    }
+}
