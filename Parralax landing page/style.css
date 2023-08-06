@@ -112,6 +112,14 @@ section{
     border-radius: 10px;
 }
 
+
+/* .section-grid .rellax this naming also does fine */
+.section-grid > div {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
 .section-grid{
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -154,3 +162,4 @@ section{
     width: 70%;
     margin: auto; */
 }
+
