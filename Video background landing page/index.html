@@ -12,10 +12,10 @@
             <h2 class="logo">
                 Travel
             </h2>
-            <div class="toggle">
+            <div class="toggle ">
              </div>
         </header>
-        <!-- <video src="background.mp4" muted loop autoplay ></video> -->
+        <video src="background.mp4" muted loop autoplay ></video>
 
         <div class="overlay"></div>
 
@@ -23,12 +23,13 @@
             <h2>Never Stop</h2>
             <h3>Exploring the world</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rem impedit reprehenderit. Ab dolorum consequatur explicabo</p>
+            <a href="#">explore</a>
         </div>
 
         <ul class="social">
-            <li><img src="facebook.png" alt=""></li>
-            <li><img src="instagram.png" alt=""></li>
-            <li><img src="twitter.png" alt=""></li>
+            <li><a href=""><img src="facebook.png" alt=""></li></a>
+            <li><a href=""><img src="instagram.png" alt=""></li></a>
+            <li><a href=""><img src="twitter.png" alt=""></li></a>
         </ul>
     </section>
 
@@ -42,5 +43,14 @@
         </ul>
     </div>
 
+    <script>
+        const menutoggle=document.querySelector('.toggle');
+        const showcase=document.querySelector('.showcase');
+
+        menutoggle.addEventListener('click',()=>{
+            menutoggle.classList.toggle('active');
+            showcase.classList.toggle('active');
+        })
+    </script>
 </body>
 </html>
