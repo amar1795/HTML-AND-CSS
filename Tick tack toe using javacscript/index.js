@@ -18,6 +18,7 @@ const changeturn=()=>{
 
 const checkwin=()=>{
     let textboxes=document.getElementsByClassName('text')
+    //  wins contains all the combinations in which a player can win
     let wins=[
         [0,1,2],
         [3,4,5],
@@ -69,19 +70,19 @@ Array.from(boxes).forEach(element =>{
 
 })
 
-reset.addEventListener('click',()=>{
-    boxes = document.getElementsByClassName("box");
+    reset.addEventListener('click',()=>{
+      boxes = document.getElementsByClassName("text");
+    //   was targetting document.getElementsByClassName("box"); before hence was unable to play after resetting the game 
     Array.from(boxes).forEach(element =>{
         element.innerText='';
                 }) ;
         isgameover=false;
         playerturn="X";
-        
+        music.pause();
+
         document.getElementsByClassName("player_text")[0].innerText  = "Turn for " +  playerturn;
         document.getElementsByTagName('img')[0].style.width = "0px";
-        Array.from(boxes).forEach(element => {
-        element.addEventListener('click', clickHandler);
-    });
+        
    
         })
 
