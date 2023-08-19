@@ -47,7 +47,9 @@ const checkwin=()=>{
 
         }
 
-//gamelogic
+
+
+// gamelogic
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>{
     let boxtext = element.querySelector('.text');
@@ -55,6 +57,7 @@ Array.from(boxes).forEach(element =>{
     element.addEventListener('click', ()=>{
         if(boxtext.innerText === '')
         {
+            // console.log(boxtext.classList)
             boxtext.innerText = playerturn;   
             playerturn = changeturn();
             turnaudio.play();
@@ -70,11 +73,49 @@ Array.from(boxes).forEach(element =>{
 
 })
 
+// ****************************************************************************************
+// by default the span element doesn't have height and width as they are inline elements hence they are not clickable until they are populated and thats the reason we cannot add event listener like click onto it first before populating as it won't work or we can make span and inline block element in that case if we remove the element we will still be able to click it even when its empty 
+
+
+
+
+// let boxes = document.querySelectorAll(".text");
+
+// Array.from(boxes).forEach(element =>{
+//     console.log("span has been clicked")
+//     // let boxtext = element.querySelector('.text');
+//     // the first class with the name texst of the element which has been clicked 
+//     element.addEventListener('click', ()=>{
+
+//         if(element.innerText === '')
+//         {
+//             element.innerText = playerturn;   
+//             playerturn = changeturn();
+//             turnaudio.play();
+//             music.play();
+
+//             checkwin();
+//             console.log("Checkwin is called")
+//             if (!isgameover){
+//                 document.getElementsByClassName("player_text")[0].innerText  = "Turn for " + playerturn;
+//             }
+//         }
+//     })
+
+// })
+
+
+
+
+
+
+
+
     reset.addEventListener('click',()=>{
       boxes = document.getElementsByClassName("text");
-    //   was targetting document.getElementsByClassName("box"); before hence was unable to play after resetting the game 
+    //   was targetting document.getElementsByClassName("box"); before hence was unable to play after resetting the game hence the setting the innertext to ="" the span was also getting removed
     Array.from(boxes).forEach(element =>{
-        element.innerText='';
+        element.innerText = '';
                 }) ;
         isgameover=false;
         playerturn="X";
