@@ -4,7 +4,7 @@
     margin: 0;
 }
 
-.container{
+.container {
     position: relative;
     height: 80vh;
     width: 80vw;
@@ -17,9 +17,8 @@
 .hour,.minutes,.seconds {
     position: absolute;
     background-color: rgb(0, 0, 0);
-    position: absolute;
     border-radius: 100%;
-    transform-origin: bottom;
+    transform-origin: bottom ;
 }
 
 .hour {
