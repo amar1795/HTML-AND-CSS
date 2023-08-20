@@ -56,8 +56,13 @@
                 {
                     addClass(currentLetter.nextSibling,"current")
                 }
-                
-                            
+                                        
+            }
+            else{
+                const incorrectletter=document.createElement("span");
+                incorrectletter.innerHTML=key;
+                incorrectletter.className="letter incorrect extra";
+                currentWord.appendChild(incorrectletter)
             }
         }
 
@@ -82,6 +87,30 @@
             addClass(currentWord.nextSibling.firstChild, "current")
                 
         }
+
+        // for moving the cursor
+        const nextletter =document.querySelector(".letter.current");
+        const nextWord =document.querySelector(".word.current");
+        const cursor=document.getElementById("cursor");
+        cursor.style.top=(nextletter || nextWord).getBoundingClientRect().top+2+5+'px';
+        cursor.style.left=(nextletter || nextWord).getBoundingClientRect()[nextletter ? "left" :"right"]+'px';
+
+        // ***************************************************************************************
+        // can also be written in the below way
+        // if(nextletter)
+        // {
+        //     cursor.style.top=nextletter.getBoundingClientRect().top+2+5+'px';
+        //     cursor.style.left=nextletter.getBoundingClientRect().left +'px';
+    
+        // }
+        // else
+        // {
+        //     cursor.style.top=nextWord.getBoundingClientRect().top+2+5+'px';
+        //     cursor.style.left=nextWord.getBoundingClientRect().right +'px';
+      
+        // }
+
+        
     })
 
     newGame()
