@@ -45,12 +45,15 @@
         console.log({key,expected})
         const isLetter=key.length === 1 && key !=" ";
         const isSpace= key === " ";
+        const isbackspace= key=== "Backspace";
+        const isfirstletter= currentLetter === currentWord.firstChild;
 
         if(isLetter)
         {
             if(currentLetter)
             {
                 addClass(currentLetter, key === expected ? "correct" :"incorrect")
+                console.log("Correct added")
                 removeClass(currentLetter,"current");
                 if(currentLetter.nextSibling)
                 {
@@ -59,6 +62,7 @@
                                         
             }
             else{
+                // if its an extra letter
                 const incorrectletter=document.createElement("span");
                 incorrectletter.innerHTML=key;
                 incorrectletter.className="letter incorrect extra";
@@ -87,6 +91,42 @@
             addClass(currentWord.nextSibling.firstChild, "current")
                 
         }
+        
+        if(isbackspace)
+        {
+            if(currentLetter && isfirstletter)
+            {   
+                // condition no 1
+                // to make previous word last element selected when clicking backspace\
+
+                removeClass(currentWord,"current");
+                addClass(currentWord.previousSibling,"current");
+                removeClass(currentLetter,"current");
+                addClass(currentWord.previousSibling.lastChild,"current")
+                removeClass(currentWord.previousSibling.lastChild,"incorrect");
+                removeClass(currentWord.previousSibling.lastChild,"correct");
+
+            }
+            if(currentLetter && !isfirstletter){
+
+            removeClass(currentLetter,"current");
+            addClass(currentLetter.previousSibling,"current");
+            removeClass(currentLetter.previousSibling,"correct");
+            removeClass(currentLetter.previousSibling,"incorrect");
+
+            }
+            if(!currentLetter)
+            {
+                addClass(currentWord.lastChild,"current");
+                removeClass(currentWord.lastChild,"incorrect");
+                removeClass(currentWord.lastChild,"correct");
+            }
+        }
+
+
+
+
+
 
         // for moving the cursor
         const nextletter =document.querySelector(".letter.current");
@@ -96,7 +136,7 @@
         cursor.style.left=(nextletter || nextWord).getBoundingClientRect()[nextletter ? "left" :"right"]+'px';
 
         // ***************************************************************************************
-        // can also be written in the below way
+        // can also be written in the below simplified way
         // if(nextletter)
         // {
         //     cursor.style.top=nextletter.getBoundingClientRect().top+2+5+'px';
