@@ -61,13 +61,13 @@
                 }
                                         
             }
-            else{
-                // if its an extra letter
-                const incorrectletter=document.createElement("span");
-                incorrectletter.innerHTML=key;
-                incorrectletter.className="letter incorrect extra";
-                currentWord.appendChild(incorrectletter)
-            }
+            // else{
+            //     // if its an extra letter
+            //     const incorrectletter=document.createElement("span");
+            //     incorrectletter.innerHTML=key;
+            //     incorrectletter.className="letter incorrect extra";
+            //     currentWord.appendChild(incorrectletter)
+            // }
         }
 
         if(isSpace)
@@ -121,6 +121,15 @@
                 removeClass(currentWord.lastChild,"incorrect");
                 removeClass(currentWord.lastChild,"correct");
             }
+        }
+
+        // scrolling the page down
+
+        if(currentWord.getBoundingClientRect().top>250)
+        {
+            const words=document.getElementById("words");
+            const margin=parseInt(words.style.marginTop || "0px")
+            words.style.marginTop=(margin- 35) + "px";
         }
 
 
