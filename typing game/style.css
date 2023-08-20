@@ -70,4 +70,29 @@ div#game{
     line-height: 35px;
     height: 105px;
     overflow: hidden;
+    position: relative;
+}
+
+#focus-error{
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    padding-top: 35px;
+}
+
+#words{
+    filter: blur(5px);
+    color: var(--textSecondary);
+}
+
+#game:focus #words{
+    filter: blur(0);
+}
+
+.letter.correct{
+    color: #fff;
+}
+
+.letter.incorrect{
+    color: #f55;
 }
