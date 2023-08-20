@@ -139,4 +139,13 @@ div#game{
 
 #game:focus #cursor{
     display: block;
+    /* filter: blur(0px); */
+}
+
+#game.over #words{
+    opacity: .5;
+}
+
+#game.over:focus #cursor{
+    display: none;
 }
