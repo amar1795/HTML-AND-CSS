@@ -71,6 +71,7 @@ div#game{
     height: 105px;
     overflow: hidden;
     position: relative;
+    
 }
 
 #focus-error{
@@ -78,6 +79,7 @@ div#game{
     inset: 0;
     text-align: center;
     padding-top: 35px;
+
 }
 
 #words{
@@ -89,10 +91,52 @@ div#game{
     filter: blur(0);
 }
 
+#game:focus {
+   outline: none;
+
+}
+
+#game:focus #focus-error{
+   display: none;
+}
+
+
+
+
+
 .letter.correct{
-    color: #fff;
+    color: #57c242;
 }
 
 .letter.incorrect{
     color: #f55;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+        }
+
+#cursor{
+    width: 2px;
+    height: 1.4rem;
+    background-color: red;
+    position: fixed;
+    top: 210px;
+    left: 17.3%;
+    display: none;
+    animation: blink 0.8s infinite;
+}
+
+#game:focus #cursor{
+    display: block;
 }
