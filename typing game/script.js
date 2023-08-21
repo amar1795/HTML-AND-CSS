@@ -38,7 +38,6 @@ window.gameStart=null;
             const correctletters=letters.filter(letter=>letter.className.includes("correct"));
             return wrongletters.length === 0 && correctletters.length ===letters.length;
              
-
         })
 
         return correctwords.length/gametime *60000;
