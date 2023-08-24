@@ -50,16 +50,24 @@ setInterval(() => {
         obstacle.classList.remove("obstacleAni")
     }
 
-    else if(offsetX <125 && cross ){
+    else if(offsetX <105 && cross ){
         score=score+1;
         totalscore(score);
         cross=false;
         setTimeout(() => {
             cross=true;
         }, 1000);
+        setTimeout(() => {
+            // we want to calculate the exact speed hence we have taken parsefloat rather than parseint which will give use the exact value
+            animationDuration=parseFloat(window.getComputedStyle(obstacle,null).getPropertyValue('animation-duration'));
+            newnimationDuration=animationDuration - 0.1 ;
+            obstacle.style.animationDuration=newnimationDuration + "s";
+            console.log("new animatio  duration  is "+newnimationDuration)
+            
+        }, 500);
     }
 
-}, 100);
+}, 10);
 
 function totalscore(score) {
     scorecard.innerHTML="Score is : "+ score;
