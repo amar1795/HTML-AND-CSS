@@ -46,6 +46,23 @@ body{
 
 .gameover{
     display: none;
+    position: relative;
+    font-size: 5.5rem;
+    top: 10vh;
+    left: 70vh;
+
+}
+.score_card{
+    font-size: 2rem;
+    padding-top: 50px;
+    padding-left: 50px;
+
+}
+.end_score{
+    position: relative;
+    font-size: 4.5rem;
+    top: 35vh;
+    left: 75vh;
 }
 
 .obstacleAni{
