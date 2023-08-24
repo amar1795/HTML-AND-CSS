@@ -1,3 +1,6 @@
+let scorecard=document.querySelector(".score_card");
+score=0;
+cross=true;
 document.onkeydown= function(e){
     console.log("keycode is "+ e.keyCode)
     if(e.keyCode== 38)
@@ -47,4 +50,19 @@ setInterval(() => {
         obstacle.classList.remove("obstacleAni")
     }
 
+    else if(offsetX <125 && cross ){
+        score=score+1;
+        totalscore(score);
+        cross=false;
+        setTimeout(() => {
+            cross=true;
+        }, 1000);
+    }
+
 }, 100);
+
+function totalscore(score) {
+    scorecard.innerHTML="Score is : "+ score;
+    console.log(score)
+    
+}

@@ -42,12 +42,16 @@ body{
     right:35vw ;
     bottom: 50px;
     /* background-color: red; */
-    animation: cactus 2.5s linear infinite ;
 }
 
 .gameover{
     display: none;
 }
+
+.obstacleAni{
+    animation: cactus 2.5s linear infinite ;
+}
+
 
 @keyframes dino{
     0%{
