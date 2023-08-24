@@ -45,6 +45,10 @@ body{
     animation: cactus 2.5s linear infinite ;
 }
 
+.gameover{
+    display: none;
+}
+
 @keyframes dino{
     0%{
         bottom: 0;

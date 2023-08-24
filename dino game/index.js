@@ -27,3 +27,24 @@ document.onkeydown= function(e){
 
     }
 }
+
+
+setInterval(() => {
+    dino=document.querySelector(".dino")
+    gameover=document.querySelector(".gameover");
+    obstacle=document.querySelector(".cactus");
+    dx=parseInt(window.getComputedStyle(dino,null).getPropertyValue('left'));
+    dy=parseInt(window.getComputedStyle(dino,null).getPropertyValue('top'));
+    console.log(dx,dy)
+    ox=parseInt(window.getComputedStyle(obstacle,null).getPropertyValue('left'));
+    oy=parseInt(window.getComputedStyle(obstacle,null).getPropertyValue('top'));
+    
+    offsetX=Math.abs(dx-ox);
+    offsetY=Math.abs(dy-oy);
+    if(offsetX<93 && offsetY<52)
+    {
+        gameover.style.display="block";
+        obstacle.classList.remove("obstacleAni")
+    }
+
+}, 100);
