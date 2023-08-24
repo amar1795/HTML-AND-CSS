@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    height: 100vh;
+    background-color: rgb(211, 211, 204);
+}
+
+.dino{
+    background-image: url('./images/dino.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    left:15vw ;
+    bottom: 0;
+    
+}
+
+.cactus{
+    background-image: url('./images/cactus.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right:35vw ;
+    bottom: 50px;
+}
+
