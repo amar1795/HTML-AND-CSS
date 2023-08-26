@@ -50,8 +50,6 @@ document.onkeydown= function(e){
 
 
 setInterval(() => {
-
-   
     dino=document.querySelector(".dino")
     gameover=document.querySelector(".gameover");
     obstacle=document.querySelector(".cactus");

@@ -12,7 +12,10 @@ let snakeBody=[{
     x:14,y:15
 }]
 
-
+// food will not be an array as it will be only 1 block which will be placed at random orders
+let food={
+    x:6,y:7
+}
 
 function main(ctime) {
     // for animating with proper frames , not using set timeout as it will not give smooth animations
@@ -39,7 +42,11 @@ function gameEngine() {
         board.appendChild(snakeelement);     
     })
 
-    
+        foodelement=document.createElement('div');
+        foodelement.style.gridRowStart=e.y;
+        foodelement.style.gridColumnStart=e.x;
+        foodelement.classList.add('food');
+        board.appendChild(foodelement);     
     
 }
 
