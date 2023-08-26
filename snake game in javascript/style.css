@@ -37,3 +37,17 @@ body{
     background-color: rgb(255, 255, 255);
 }
 
+.highScoreContainer{
+    position: absolute;
+    font-size: 2rem;
+    right: 250px;    
+    top: 150px;
+    }
+
+.scoreContainer{
+    position: absolute;
+    font-size: 2rem;
+    right: 250px;    
+    top: 200px;
+
+}

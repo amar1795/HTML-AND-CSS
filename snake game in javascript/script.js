@@ -7,7 +7,9 @@ let speed=6;
 let lastPaintTime=0;
 const board=document.querySelector('.board')
 let inputdir = {x: 0, y: 0}; 
-
+let score=0;
+let scoreContainer=document.querySelector(".scoreContainer")
+let highScoreContainer=document.querySelector(".highScoreContainer")
 // snake body array , this will be array as when the snake eats the body blocks get added up
 let snakeBody=[{
     x:14,y:15
@@ -40,7 +42,7 @@ function iscollide(snake) {
         
     }
 
-    if(snake[0].x>=18 || snake[0].x<=0 && snake[0].y>=18 || snake[0].y<=0)
+    if(snake[0].x>=18 || snake[0].x<=0 || snake[0].y>=18 || snake[0].y<=0)
     {
         return true;
     }
@@ -66,6 +68,16 @@ function gameEngine() {
 
     if(snakeBody[0].y==food.y && snakeBody[0].x==food.x)
     {
+        foodmusic.play();
+        score+=1;
+        if(score>hiscorevalue)
+        {
+            hiscorevalue=score;
+            localStorage.setItem("HISCORE",JSON.stringify(hiscorevalue));
+            highScoreContainer.innerHTML="Hi Score :" +hiscorevalue;
+        }
+        scoreContainer.innerHTML ="Score is :"+ score;
+
         // body will be shifted to one block ahead after eating the food
         snakeBody.unshift({x:snakeBody[0].x+inputdir.x ,y:snakeBody[0].y+inputdir.y})
         let a=2;
@@ -106,7 +118,7 @@ function gameEngine() {
         }
         // add the complete snake to the board 
         board.appendChild(snakeelement); 
-                    });
+        });
 
         foodelement=document.createElement('div');
         foodelement.style.gridRowStart=food.y;
@@ -119,6 +131,16 @@ function gameEngine() {
 
 
 
+let hiscore=localStorage.getItem("HISCORE");
+if(hiscore === null)
+{
+    hiscorevalue=0
+    localStorage.setItem("HISCORE", JSON.stringify(hiscorevalue))
+}
+else{
+    hiscorevalue=JSON.parse(hiscore);
+    highScoreContainer.innerHTML="Hi score :"+ hiscorevalue;
+}
 
 
 
