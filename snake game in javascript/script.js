@@ -3,9 +3,10 @@ let foodmusic=new Audio('./music/food.mp3')
 let Gameovermusic=new Audio('./music/gameover.mp3')   
 let bgmusic=new Audio('./music/music.mp3')   
 let movemusic=new Audio('./music/move.mp3')   
-let speed=2;
+let speed=6;
 let lastPaintTime=0;
 const board=document.querySelector('.board')
+let inputdir = {x: 0, y: 0}; 
 
 // snake body array , this will be array as when the snake eats the body blocks get added up
 let snakeBody=[{
@@ -29,7 +30,20 @@ function main(ctime) {
     gameEngine();   
 }
 
-function iscollide() {
+function iscollide(snake) {
+
+    for (let index = 1; index < snakeBody.length; index++) {
+        // if snake collides inside its own body
+      if(snakeBody[index].x === snake[0].x && snakeBody[index].y === snake[0].y){
+            return true;
+        }
+        
+    }
+
+    if(snake[0].x>=18 || snake[0].x<=0 && snake[0].y>=18 || snake[0].y<=0)
+    {
+        return true;
+    }
     
 }
 
@@ -64,10 +78,11 @@ function gameEngine() {
 
     for(let i=snakeBody.length-2;i>=0;i--)
     {
-        // using destructuring because 
+        // using destructuring because all the snake blocks/array will be pointing to always a single block
+        // with destructuring all the previous blocks will be stored where the previous blocks were pointing to initially
         snakeBody[i+1]={...snakeBody[i]};
     }
-
+        // snake will move in the direction where the input has been given
         snakeBody[0].x+=inputdir.x;
         snakeBody[0].y+=inputdir.y;
         
