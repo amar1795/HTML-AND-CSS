@@ -5,5 +5,19 @@
 }
 
 body{
-    
+    background-color: rgb(144, 149, 153);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
+
+.board{
+    background: linear-gradient(rgb(117, 214, 117),rgb(222, 176, 176));
+    height: 92vmin;
+    width: 90vmin;
+
+}
+
