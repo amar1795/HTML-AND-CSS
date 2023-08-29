@@ -54,6 +54,11 @@ const clearUI=()=>{
 qr.innerHTML="";
 link = document.createElement("a");
 document.getElementById("generated").innerHTML="";
+// or can use this to remove the extra button
+// const saveBtn = document.getElementById("save-link");
+//   if (saveBtn) {
+//     saveBtn.remove();
+//   }
 }
 
 const showSpinner=()=>{
