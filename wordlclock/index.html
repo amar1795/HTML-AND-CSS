@@ -112,5 +112,20 @@
       </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        // will show the date
+        let d =new Date();
+        usa.innerHTML=d.toLocaleString('en-US',{
+            timeZone:"America/Los_Angeles"
+        }).split(", ")[1]
+        india.innerHTML=d.toLocaleString('en-US',{
+                timeZone:"Asia/Kolkata"
+            }).split(", ")[1]
+        china.innerHTML=d.toLocaleString('en-US',{
+                timeZone:"Asia/Shanghai"
+            }).split(", ")[1]
+
+
+    </script>
   </body>
 </html>
