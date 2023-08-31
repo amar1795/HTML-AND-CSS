@@ -112,9 +112,12 @@
               
             </main>
 
-            <label for="appt">Select a Time :</label>
+            <div class="container">
+              <h1>Set Your Alarm</h1>
+              <label for="appt">Select a Time :</label>
             <input type="time" id="alarm" name="alarm">
           
+            </div>
            
           </div>
       </div>
@@ -145,10 +148,10 @@
 
           if(d.getHours()==alarmhour && d.getMinutes()==alarmmin)
           {
-            let alarm_Audio=new Audio("alarm.mp3");
-            alarm_Audio.play();
-            
 
+            let audio="https://file-examples.com/storage/fee055cea664f06ab9a43fb/2017/11/file_example_MP3_1MG.mp3"
+            let alarm_Audio=new Audio(audio);
+            alarm_Audio.play();
             console.log("alarm is ringing")
           }
         }
