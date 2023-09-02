@@ -1,4 +1,9 @@
 const cityname=document.getElementById("cityname")
+const cardElements = [
+    document.getElementById("img1"),
+    document.getElementById("img2"),
+    document.getElementById("img3")
+  ];
 
 
 async function fetchData(city) {
@@ -16,6 +21,18 @@ async function fetchData(city) {
     const response = await fetch(url, options);
     const result = await response.json();
     cityname.innerHTML=result.location.name;
+    result.forecast.forecastday.forEach((element,index) => {
+       console.log(index+1)
+       cardElements[index].src=result.forecast.forecastday[index].day.condition.icon;
+  
+    });
+    
+    // img1.src=result.forecast.forecastday[0].day.condition.icon;
+    // img2.src=result.forecast.forecastday[1].day.condition.icon;
+    // img3.src=result.forecast.forecastday[2].day.condition.icon;
+
+
+    
     console.log(result);
   } catch (error) {
     console.error(error);
