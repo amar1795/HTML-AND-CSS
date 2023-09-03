@@ -2,12 +2,22 @@ const express = require('express')
 const app = express()
 const axios = require('axios');
 const port = 3000
+const path = require('path');
+
+
+
+
 
 app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname,"./","index.html"))
+  
+})
+
+app.get('/searchword', (req, res) => {
   res.send('Hello World!')
   
 // console.log(req.params)
-  const dictionary=async()=>{
+const dictionary=async()=>{
 
 
 const options = {
