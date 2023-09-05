@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<style>
+		.container{
+			height: 55vh;
+			width: 100%;
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="textarea">
+
+		</div>
+		
+		
+
+	</div>
+
+	
+
+	<script>
+		console.log("this is working")
+		let container=document.querySelector('.container');
+		let textArea=document.querySelector('.textarea');
+		let val=localStorage.getItem("text");
+		let texttoadd;
+		if(val == 0)
+		{
+			texttoadd=document.createTextNode("Currently no text is here ,please click here to edit it ");
+			console.log("this should print ")
+		}
+		else{
+			texttoadd=document.createTextNode(val);
+		}
+
+		container.appendChild(texttoadd);
+
+
+		let textarea=0;
+		container.addEventListener("click",()=>{
+			console.log("button has been clicked")
+			console.log(textarea)
+
+			if(textarea === 0)
+			{
+				let html=container.innerText;
+				console.log("textarea has been added")
+
+				textarea=1;	
+				container.innerHTML=`<textarea name="" id="elem" cols="30" rows="5" >${html}</textarea>`
+				
+				
+				
+			}
+			
+			let elem=document.getElementById("elem");
+			console.log("the textare value is "+elem.value)
+			
+			elem.addEventListener("blur",function(e){
+				// elem.style.display="none"
+				console.log("blur function has been fired")
+				localStorage.setItem("text",elem.value);
+			})
+			
+			// elem.style.display="none"	
+			
+
+		})
+
+		
+
+		
+
+	</script>
+</body>
+</html>
