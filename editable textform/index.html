@@ -29,13 +29,21 @@
 		let container=document.querySelector('.container');
 		let textArea=document.querySelector('.textarea');
 		let val=localStorage.getItem("text");
+
+		if(val == null)
+		{
+			localStorage.setItem("text","Currently no text is here ,please click here to edit it");
+
+		}
 		let texttoadd;
-		if(val == 0)
+		if(val == 0 )
 		{
 			texttoadd=document.createTextNode("Currently no text is here ,please click here to edit it ");
 			console.log("this should print ")
 		}
-		else{
+		
+		
+		else {
 			texttoadd=document.createTextNode(val);
 		}
 
@@ -53,7 +61,7 @@
 				console.log("textarea has been added")
 
 				textarea=1;	
-				container.innerHTML=`<textarea name="" id="elem" cols="30" rows="5" >${html}</textarea>`
+				container.innerHTML=`<textarea name="" id="elem" cols="30" rows="5"  >${html}</textarea>`
 				
 				
 				
