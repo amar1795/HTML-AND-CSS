@@ -3,7 +3,7 @@ function generate() {
     if (document.getElementById('lowerCase').checked) {
         dictionary += 'qwertyuiopasdfghjklzxcvbnm';
       }
-      if (document.getElementById('lowerCase').checked) {
+      if (document.getElementById('upperCase').checked) {
         dictionary += 'QWERTYUIOPASDFGHJKLZXCVBNM';
       }
       if (document.getElementById('numberCase').checked) {
@@ -42,6 +42,17 @@ function generate() {
             generate();
           });
 
+          document.querySelector('div.password button').addEventListener('click', () => {
+            const pass = document.querySelector('input[type="text"]').value;
+            // to copy the password from the input and it returns a promise
+            navigator.clipboard.writeText(pass).then(() => {
+              document.querySelector('div.password button').innerHTML = 'copied!';
+              setTimeout(() => {
+                document.querySelector('div.password button').innerHTML = 'copy';
+              }, 1000);
+            })
+          });
+          
           
           
 

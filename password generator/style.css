@@ -37,6 +37,7 @@ button{
     padding: 5px 15px;
     border: 0;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .password button{
