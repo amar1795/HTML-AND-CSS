@@ -31,7 +31,7 @@ function generate() {
   document.querySelector('input[type="text"]').value = password;
 
 }
-        // made this an array
+        // made this an array,if clicked on any checkbx or generate button password will be updated
         [...document.querySelectorAll('input[type="checkbox"], button.generate')].forEach(elem => {
             elem.addEventListener('click', generate);
         });
