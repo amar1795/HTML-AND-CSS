@@ -5,8 +5,12 @@ const tabContensItems=document.querySelectorAll('.tab-content-item');
 function selectitem (e){
     removeborder();
     removeShow();
+    // e.target.classList.add('tab-border')
+    // e.target will also work but will target the exact element where do you click like even inside the icon it will add the tab-border 
     this.classList.add('tab-border')
     console.log("click has been clicked")
+    console.log(`"id is"+ ${this.id}`)
+    // const tabContensItem=document.querySelector(`#${e.target.id}-content`)
     const tabContensItem=document.querySelector(`#${this.id}-content`)
     // adding the show class to the content for it to be displayed
     tabContensItem.classList.add('show');
@@ -27,4 +31,4 @@ function removeborder(e) {
 
 
 // iterating over the tabitems
-tabItems.forEach(item=>item.addEventListener('click',selectitem));
+tabItems.forEach(item=>item.addEventListener('click',selectitem));  
