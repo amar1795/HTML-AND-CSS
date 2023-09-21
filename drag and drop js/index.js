@@ -2,7 +2,7 @@ const draggable_list=document.getElementById("draggable-list");
 const check=document.getElementById("check");
 
 const richestPeople=[
-    'Jeff Bezos',
+  'Jeff Bezos',
   'Bill Gates',
   'Warren Buffett',
   'Bernard Arnault',
@@ -47,40 +47,75 @@ const richestPeople=[
   
     }
 
+
+
+    function swapItems(fromIndex,toIndex) {
+      // swapping of two cards 
+    const itemOne=listItems[fromIndex].querySelector(".draggable");
+    const itemTwo=listItems[toIndex].querySelector(".draggable");
+    listItems[fromIndex].appendChild(itemTwo);
+    listItems[toIndex].appendChild(itemOne);
+
+  }
+
+  function checkOrder() {
+    listItems.forEach((listItem,index)=>{
+      const personName=listItem.querySelector(".draggable").innerText.trim();
+
+      if(personName !==richestPeople[index])
+      {
+        listItem.classList.add("wrong");
+      }
+      else
+      {
+        listItem.classList.remove("wrong");
+        listItem.classList.add("right");
+
+      }
+
+    })
     
+  }
+
 
     function addEventListeners() {
+      // this will be the movable card
       const draggables=document.querySelectorAll('.draggable')
+
+      // this will be all the other stationary card when moving the actual cards
       const dragListItems=document.querySelectorAll('.draggable-list li');
 
       draggables.forEach(draggable => {
-        draggable.addEventListener("dragstart",)
+        draggable.addEventListener("dragstart",dragStart)
       })
 
-      function swapItems() {
-        console.log("swap Items")
-        
-        
+
+      function dragStart() {
+       
+        dragStartIndex = +this.closest('li').getAttribute('data-index');
+        console.log(dragStartIndex)
       }
 
       function dragEnter() {
-        // console.log('Event: ', 'dragenter');
+        
         this.classList.add('over');
       }
       
       function dragLeave() {
-        // console.log('Event: ', 'dragleave');
+        
         this.classList.remove('over');
       }
       
       function dragOver(e) {
-        // console.log('Event: ', 'dragover');
+       
         e.preventDefault();
       }
       
       function dragDrop() {
-        // console.log('Event: ', 'drop');
+       
         const dragEndIndex = +this.getAttribute('data-index');
+        console.log(dragEndIndex)
+
         swapItems(dragStartIndex, dragEndIndex);
       
         this.classList.remove('over');
@@ -106,7 +141,7 @@ const richestPeople=[
         item.addEventListener("dragleave",dragLeave);
         
       })
-
-      
-
     }
+
+    check.addEventListener("click",checkOrder)
+
