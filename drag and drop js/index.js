@@ -43,6 +43,70 @@ const richestPeople=[
 
       })
 
+      addEventListeners();
+  
+    }
+
     
+
+    function addEventListeners() {
+      const draggables=document.querySelectorAll('.draggable')
+      const dragListItems=document.querySelectorAll('.draggable-list li');
+
+      draggables.forEach(draggable => {
+        draggable.addEventListener("dragstart",)
+      })
+
+      function swapItems() {
+        console.log("swap Items")
+        
+        
+      }
+
+      function dragEnter() {
+        // console.log('Event: ', 'dragenter');
+        this.classList.add('over');
+      }
       
+      function dragLeave() {
+        // console.log('Event: ', 'dragleave');
+        this.classList.remove('over');
+      }
+      
+      function dragOver(e) {
+        // console.log('Event: ', 'dragover');
+        e.preventDefault();
+      }
+      
+      function dragDrop() {
+        // console.log('Event: ', 'drop');
+        const dragEndIndex = +this.getAttribute('data-index');
+        swapItems(dragStartIndex, dragEndIndex);
+      
+        this.classList.remove('over');
+      }
+
+
+      dragListItems.forEach(item=>{
+        item.addEventListener("dragover",dragOver);
+         item.addEventListener("drop",dragDrop);
+        
+
+        // item.addEventListener("drop",(e)=>{
+        //   const dragEndIndex=+this.getAttribute('data-index');
+        //   swapItems(dragStartIndex,dragEndIndex);
+        //   this.classList.remove('over');
+        //   // here the arrow function acts as an event listener
+        //   // should never use this inside an arrow function as arrwo function do not have their own this and hence it referes to the nearest this and causes errror
+
+
+        // });
+
+        item.addEventListener("dragenter",dragEnter);
+        item.addEventListener("dragleave",dragLeave);
+        
+      })
+
+      
+
     }
