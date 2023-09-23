@@ -2,6 +2,10 @@ const playPauseBtn= document.querySelector(".play-pause-btn");
 const theaterBtn= document.querySelector(".theater-btn");
 const fullScreenBtn= document.querySelector(".full-screen-btn");
 const miniPlayerBtn= document.querySelector(".mini-player-btn");
+const currentTimeElem= document.querySelector(".current-time");
+const totalTimeElem= document.querySelector(".total-time");
+
+
 const muteBtn= document.querySelector(".mute-btn");
 const volumeSlider= document.querySelector(".volume-slider");
 
@@ -38,9 +42,57 @@ switch(e.key.toLowerCase()){
             toggleMute();
             break;
 
+        case "arrowleft":
+            case"j" :
+           skip(-5)
+            break;
+
+         case "arrowright":
+            case"l" :
+           skip(5)
+            break;
+
+            
+
 }
 
 })
+
+
+// this shows the complete video duration
+video.addEventListener("loadeddata",()=>{
+    totalTimeElem.textContent=formatDuration(video.duration);
+})
+
+// this will show the current video time
+video.addEventListener("timeupdate",()=>{
+    currentTimeElem.textContent=formatDuration(video.currentTime)
+})
+
+const leadingZeroFormatter=new Intl.NumberFormat(undefined,{
+    minimumIntegerDigits:2,
+})
+
+function formatDuration(time) {
+    const seconds=Math.floor(time%60);
+    const minutes=Math.floor(time/60)%60;
+    const hours=Math.floor(time/3600);
+    if(hours==0)
+    {
+        return `${minutes}:${leadingZeroFormatter.format(seconds)}`
+    }
+
+    else{
+        return `${1}:${leadingZeroFormatter.format(2)}:${leadingZeroFormatter.format(3)}`
+    }
+    
+    
+}
+
+function skip(duration) {
+    video.currentTime+=duration;
+    
+}
 
 // volume
 

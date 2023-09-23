@@ -103,7 +103,7 @@ video{
     display: none;
 }
 
-.video-container:not(.paused) .play{
+.video-container:not(.paused) .play-icon{
     /* on pause hiding pause button and displaying play button */
     display: none;
 }
@@ -167,4 +167,14 @@ volume-muted-icon{
 }
 
 
+.duration-container{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    flex-grow: 1;
+}
 
+.video-container.captions .captions-btn{
+    border-bottom: 3px solid red;
+
+}
