@@ -103,7 +103,27 @@ video{
     display: none;
 }
 
-.video-container:not(.paused) .play-icon{
+.video-container:not(.paused) .play{
+    /* on pause hiding pause button and displaying play button */
+    display: none;
+}
+
+.video-container.theater .tall{
+    /* on pause hiding pause button and displaying play button */
+    display: none;
+}
+
+.video-container:not(.theater) .wide{
+    /* on pause hiding pause button and displaying play button */
+    display: none;
+}
+
+.video-container.full-screen .open{
+    /* on pause hiding pause button and displaying play button */
+    display: none;
+}
+
+.video-container:not(.full-screen) .close{
     /* on pause hiding pause button and displaying play button */
     display: none;
 }
