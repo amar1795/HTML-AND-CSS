@@ -16,6 +16,23 @@ body{
     /* can also make the parent container flex and aligned this box in between */
     margin-inline: auto;
     position: relative;
+    background-color: black;
+
+}
+
+.video-container.theater,.video-container.full-screen{
+    max-width: initial;
+    width: 100%;
+   
+}
+
+.video-container.theater{
+
+    max-height: 90vh;
+}
+
+.video-container.full-screen{
+    max-height: 100vh;
 
 }
 

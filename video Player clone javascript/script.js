@@ -29,4 +29,4 @@ video.addEventListener("play",()=>{
 
 video.addEventListener("pause",()=>{
     videoContainer.classList.add("paused")
-})
+})  
