@@ -35,6 +35,18 @@ video{
 
 }
 
+.video-controls-container::before{
+    content:" ";
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.75),transparent);
+    width: 100%;
+    aspect-ratio: 6/1;
+    z-index: -1;
+    /* if pointer events is not none then it would not allow to click on the polay pause button section */
+    pointer-events: none;
+}
+
 .video-container:hover 
 .video-controls-container,
 .video-container:focus-within 
