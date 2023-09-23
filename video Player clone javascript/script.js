@@ -4,6 +4,7 @@ const fullScreenBtn= document.querySelector(".full-screen-btn");
 const miniPlayerBtn= document.querySelector(".mini-player-btn");
 const currentTimeElem= document.querySelector(".current-time");
 const totalTimeElem= document.querySelector(".total-time");
+const captionsBtn= document.querySelector(".captions-btn");
 
 
 const muteBtn= document.querySelector(".mute-btn");
@@ -51,12 +52,30 @@ switch(e.key.toLowerCase()){
             case"l" :
            skip(5)
             break;
+         case "c":
+            toggleCaptions();
+                break;
 
             
 
 }
 
 })
+
+
+// captions
+
+const  captions=video.textTracks[0]
+captions.mode="hidden"
+
+captionsBtn.addEventListener("click",toggleCaptions)
+
+function toggleCaptions() {
+    const isHidden=captions.mode ==="hidden"
+    captions.mode=isHidden ? "showing" :"hidden"
+    videoContainer.classList.toggle("captions",isHidden)
+    
+}
 
 
 // this shows the complete video duration
@@ -85,7 +104,6 @@ function formatDuration(time) {
     else{
         return `${1}:${leadingZeroFormatter.format(2)}:${leadingZeroFormatter.format(3)}`
     }
-    
     
 }
 
@@ -126,8 +144,6 @@ video.addEventListener("volumechange",()=>{
     videoContainer.dataset.volumeLevel=volumeLevel;
   
 })
-
-
 
 // view modes
 theaterBtn.addEventListener("click",toggleTheaterMode);
@@ -170,9 +186,6 @@ video.addEventListener("enterpictureinpicture",()=>{
 video.addEventListener("leavepictureinpicture",()=>{
     videoContainer.classList.remove("mini-player")
 })
-
-
-
 
 
 document.addEventListener("fullscreenchange",()=>{
