@@ -31,13 +31,10 @@
         .inside-container{
             height: 200vh;
             background-color: blue;
-            position: relative;
+            /* position: relative; */
             /* margin-top: 500px; */
         }
-        
-        .spacer {
-        height: 100px; 
-            }
+  
 
 
         .menu{
@@ -45,15 +42,42 @@
             height: 400px;
             width: 200px;
             background-color: chartreuse;
-            right: 100px;
+            /* right: 100px; */
             /* padding-top: 500px; */
             /* margin-top: 50px; */
-            top: 60px;
+            top: 200px;
+            left: 85%;
             /* z-index: 2; */
+            /* either can add a container on the top of this container then the maring properties would work or can use a dummy spacer height  */
+            margin-top: 50px;
+            /* margin-bottom: 50px; */
+
         }
         
 
+        ul{
+           position: relative;
+           left: 40px;
+           top: 10px;
+           
+        }
+
         
+            .dummy-container{
+                height: 400px;
+                background-color: purple;
+            }
+      
+            .bottom-spacing {
+                /* background-color: bisque; */
+               background-color: blue;
+        border-top: 50px solid transparent; /* Adjust the border size for spacing */
+    }
+                  
+        /* .padding-spacer {
+        height: 150px; 
+        background-color: rgb(38, 255, 0);
+            } */
         
     </style>
 </head>
@@ -65,9 +89,11 @@
         </div>
 
         <div class="inside-container">
+            <div class="dummy-container">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur quasi libero ad in quidem aliquid. Ipsum, mollitia autem. Deserunt voluptates quis, minus repellat dolores aspernatur corrupti aut eos suscipit quod! Vero, in quas. Optio qui numquam repellendus, corporis incidunt culpa asperiores atque illum similique animi?</p>
+            </div>
 
             <div class="spacer"></div>
-
 
                 <div class="menu">
 
@@ -85,11 +111,19 @@
                             <li>hey</li>
                             
                         </ul>
+
                
-                    <!-- <div class="padding-spacer"></div> -->
-            </div>
-            
-        </div>
+                    </div>
+                    
+
+                    
+                    
+                </div>
+                <div class="bottom-spacing">
+
+                    
+                </div>
+
 
     </div>
     
