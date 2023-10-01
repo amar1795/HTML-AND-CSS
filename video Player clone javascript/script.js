@@ -6,6 +6,8 @@ const currentTimeElem= document.querySelector(".current-time");
 const totalTimeElem= document.querySelector(".total-time");
 const captionsBtn= document.querySelector(".captions-btn");
 
+const SpeedBtn= document.querySelector(".speed-btn");
+
 
 const muteBtn= document.querySelector(".mute-btn");
 const volumeSlider= document.querySelector(".volume-slider");
@@ -61,6 +63,21 @@ switch(e.key.toLowerCase()){
 }
 
 })
+
+
+// speed function
+
+SpeedBtn.addEventListener("click",changePlaybackSpeed)
+
+function changePlaybackSpeed() {
+
+    let newPlaybackRate=video.playbackRate + 0.25;
+    if(newPlaybackRate>2) newPlaybackRate=0.25
+    video.playbackRate =newPlaybackRate
+    SpeedBtn.textContent=`${newPlaybackRate}x`;
+
+    
+}
 
 
 // captions
