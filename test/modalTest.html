@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 100vh;
+            width: 100%;
+            background-color: bisque;
+            position: relative;
+            transition: all 0.3s ease-in;
+            
+        }
+
+        .modal_container{
+            position: absolute;
+            height: 400px;
+            width: 400px;
+            background-color: aquamarine;
+           top: 45%;
+           left: 35%;
+           z-index: -2;
+
+        }
+
+        .modal_containerIndex{
+            z-index: 10;
+
+        }
+
+        .modal{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            background-color: rgba(0,0 ,0 ,0.45 );
+            z-index: -1;
+            transition: all 0.5s ease-in-out;
+            
+        }
+        .modalIndex{
+            z-index: 1;
+
+        }
+
+        .button{
+            position: absolute;
+            top: 40%;
+            left: 45%;
+            z-index:2;         
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+
+        <div class="modal_container">
+
+        </div>
+        
+        <button class="button">Click Here</button>
+    </div>
+
+    <div class="modal ">
+
+    </div>
+
+
+    <script>
+
+        const button =document.querySelector(".button");
+            const container =document.querySelector(".container");
+
+
+        const modal =document.querySelector(".modal");
+        const modalContainer =document.querySelector(".modal_container");
+        
+        button.addEventListener("click",handleClick)
+
+        function handleClick(e) {
+            
+            console.log("modal index has been clicked")
+            modal.classList.add("modalIndex");
+            modalContainer.classList.add("modal_containerIndex")
+    
+        }
+
+        modal.addEventListener("click",handleReverse)
+
+        function handleReverse(params) {
+
+            modal.classList.remove("modalIndex");
+            modalContainer.classList.remove("modal_containerIndex")
+        }
+
+
+         
+    </script>
+</body>
+</html>
