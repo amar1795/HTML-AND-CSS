@@ -250,7 +250,7 @@ volume-muted-icon{
 
 
 /* the blur image in the bakcground that shows when we cribble through the play pause button  */
-.thumb-img{
+.thumbnail-img{
     position: absolute;
     top: 0;
     left: 0;

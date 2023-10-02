@@ -17,24 +17,45 @@ const timelineContainer=document.querySelector(".timeline-container");
 
 
 
+
+timelineContainer.addEventListener("mousemove",handleTimeUpdate);
+timelineContainer.addEventListener("mousedown",toggleScrubbing);
+
+document.addEventListener("mouseup",(e)=>{
+if(isScrubbing) toggleScrubbing(e);
+
+})
+
+document.addEventListener("mousemove",(e)=>{
+    if(isScrubbing) handleTimeUpdate(e);
+
+})
+
 let isScrubbing=false;
 let wasPaused;
+
+// when we scrub on the video we want this video to show the pasue image in the background
 
 function toggleScrubbing() {
 
     const rect=timelineContainer.getBoundingClientRect();
     const percent=Math.min(Math.max(0, e.x - rect.x), rect.width)/rect.width;
    rect.width
-   isScrubbing=(e.buttons & 1 )===1
+   isScrubbing = (e.buttons & 1 ) === 1
    videoContainer.classList.toggle("scrubbing",isScrubbing)
    if(isScrubbing)
    {
-    wasPaused=video.paused;
-    video.pause();
+    wasPaused=video.paused
+    video.pause()
    }
    else{
-    video.currentTime=percent
+    video.currentTime=percent*video.duration
+    if(!wasPaused) {
+        video.play();
+    }
    }
+
+   handleTimeUpdate(e);
     
 }
 
@@ -42,7 +63,6 @@ function toggleScrubbing() {
 
 
 
-timelineContainer.addEventListener("mousemove",handleTimeUpdate);
 
 function handleTimeUpdate(e) {
     const rect=timelineContainer.getBoundingClientRect();
