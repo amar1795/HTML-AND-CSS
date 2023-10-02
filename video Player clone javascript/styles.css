@@ -262,6 +262,18 @@ volume-muted-icon{
 
 }
 
+.timeline .preview-img{
+    position: absolute;
+    height: 80px;
+    aspect-ratio: 16/9;
+    top: -1rem;
+    transform: translate(-50%,-100%);
+    left: calc(var(--preview-position)*100%);
+    border-radius: .25rem;
+    border: 2px solid white;
+    display: none;
+}
+
 
 .video-container.scrubbing .thumbnail-img {
     display: block;

@@ -5,17 +5,28 @@ const miniPlayerBtn= document.querySelector(".mini-player-btn");
 const currentTimeElem= document.querySelector(".current-time");
 const totalTimeElem= document.querySelector(".total-time");
 const captionsBtn= document.querySelector(".captions-btn");
-
 const SpeedBtn= document.querySelector(".speed-btn");
-
-
+const previewImg= document.querySelector(".preview-img");
+const thumbnailImg= document.querySelector(".thumbnail-img");
 const muteBtn= document.querySelector(".mute-btn");
 const volumeSlider= document.querySelector(".volume-slider");
-
-
-
 const videoContainer= document.querySelector(".video-container");
 const video=document.querySelector("video");
+const timelineContainer=document.querySelector(".timeline-container");
+
+
+timelineContainer.addEventListener("mousemove",handleTimeUpdate);
+
+function handleTimeUpdate(e) {
+    const rect=timelineContainer.getBoundingClientRect();
+    const percent=Math.min(Math.max(0, e.x - rect.x), rect.width)/rect.width;
+    const previewImgNumber=Math.max(1,Math.floor((percent * video.duration)/10));
+    const previewImgSrc=`assests/previewImages/preview${previewImgNumber}.jpg`;
+
+    previewImg.src =previewImgSrc;
+    timelineContainer.style.setProperty("--preview-position",percent);
+    
+}
 
 playPauseBtn.addEventListener("click",toggleplay);
 
