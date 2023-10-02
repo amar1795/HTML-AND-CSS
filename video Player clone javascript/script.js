@@ -15,6 +15,33 @@ const video=document.querySelector("video");
 const timelineContainer=document.querySelector(".timeline-container");
 
 
+
+
+let isScrubbing=false;
+let wasPaused;
+
+function toggleScrubbing() {
+
+    const rect=timelineContainer.getBoundingClientRect();
+    const percent=Math.min(Math.max(0, e.x - rect.x), rect.width)/rect.width;
+   rect.width
+   isScrubbing=(e.buttons & 1 )===1
+   videoContainer.classList.toggle("scrubbing",isScrubbing)
+   if(isScrubbing)
+   {
+    wasPaused=video.paused;
+    video.pause();
+   }
+   else{
+    video.currentTime=percent
+   }
+    
+}
+
+
+
+
+
 timelineContainer.addEventListener("mousemove",handleTimeUpdate);
 
 function handleTimeUpdate(e) {
