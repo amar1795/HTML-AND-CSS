@@ -25,6 +25,13 @@ function handleTimeUpdate(e) {
 
     previewImg.src =previewImgSrc;
     timelineContainer.style.setProperty("--preview-position",percent);
+
+
+    if(isScrubbing){
+        e.preventDefault();
+        thumbnailImg.src=previewImgSrc;
+        timelineContainer.style.setProperty("--progress-position",percent)
+    }
     
 }
 
@@ -113,6 +120,9 @@ video.addEventListener("loadeddata",()=>{
 
 // this will show the current video time
 video.addEventListener("timeupdate",()=>{
+
+    const percent=video.currentTime/video.duration;
+    timelineContainer.style.setProperty("--progress-position",percent)
     currentTimeElem.textContent=formatDuration(video.currentTime)
 })
 
