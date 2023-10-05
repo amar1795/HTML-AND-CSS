@@ -136,18 +136,50 @@ for(var i=0;i<5;i++){
 
 
 
-//   var a=1;
- 
-// {
-// console.log(a)
+function sayHi(name) {
 
-// console.log(a)
+  const n= "hi";
 
-// console.log(a)
+  function greet() {
+    return(n + name +" is created")
+    
+  }
 
-// console.log(a)
+  return greet
+  
+}
 
-// console.log(a)}
+
+let cl=sayHi("john")
+
+console.log(cl())
+
+
+function counter() {
+  let count=0;
+  return function innerCount() {
+    console.log(count++)
+    console.log(count++)  
+    count++;
+    
+  }
+
+  
+}
+
+
+let count1=counter();
+count1();
+count1();
+count1();
+
+
+// let count2=counter();
+// count2();
+// count2();
+// count2();
+
+
 
 
 
