@@ -67,11 +67,6 @@ Display.prototype.checkStorage=function (book){
    
 }
 
-
-
-
-
-
 // Add methods to display prototype
 Display.prototype.add = function (book) {
     console.log("Adding to UI");
@@ -116,6 +111,49 @@ Display.prototype.delete = function (id) {
 
    
 }
+
+
+
+
+// search element
+
+
+    let search=document.getElementById("searchTxt");
+    search.addEventListener("input",searchfunc)
+
+    function searchfunc() {
+
+        storage=JSON.parse(localStorage.getItem("book"));
+
+        let tableBody = document.getElementById('tableBody');
+
+
+        console.log("this is search function")
+
+        let bookNameCell;
+        for (let i = 0; i < tableBody.rows.length; i++) {
+            let row = tableBody.rows[i];
+             bookNameCell = row.cells[0]; 
+            let bookName = bookNameCell.textContent.toLowerCase();
+            let searchTerm = search.value.toLowerCase();
+    
+            if (bookName.includes(searchTerm)) {
+                row.style.display = "table-row";
+            } else {
+                row.style.display = "none";
+            }
+        }
+    }
+    
+    
+    
+    
+
+        
+    
+
+   
+
 
 
 // Implement the clear function
