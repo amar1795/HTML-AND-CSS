@@ -30,30 +30,39 @@
 		let textArea=document.querySelector('.textarea');
 		let val=localStorage.getItem("text");
 
-		if(val == null)
-		{
-			localStorage.setItem("text","Currently no text is here ,please click here to edit it");
+		// if(val == null)
+		// {
+		// 	localStorage.setItem("text","Currently no text is here ,please click here to edit it");
 
-		}
+		// }
 		let texttoadd;
-		if(val == 0 )
+		if(val == null )
 		{
 			texttoadd=document.createTextNode("Currently no text is here ,please click here to edit it ");
+			// texttoadd="Currently no text is here ,please click here to edit it ";
+			
 			console.log("this should print ")
 		}
 		
 		
 		else {
 			texttoadd=document.createTextNode(val);
+			// texttoadd=val;
 		}
 
+
 		container.appendChild(texttoadd);
+		// container.innerHTML=texttoadd;
+
 
 
 		let textarea=0;
+		console.log("this is text area"+textArea.length)
 		container.addEventListener("click",()=>{
+			// let textarea=document.getElementsByClassName("textarea").length;
 			console.log("button has been clicked")
 			console.log(textarea)
+
 
 			if(textarea === 0)
 			{
@@ -61,10 +70,8 @@
 				console.log("textarea has been added")
 
 				textarea=1;	
-				container.innerHTML=`<textarea name="" id="elem" cols="30" rows="5"  >${html}</textarea>`
-				
-				
-				
+				container.innerHTML=`<textarea name="" class="textarea" id="elem" cols="30" rows="5"  >${html}</textarea>`
+								
 			}
 			
 			let elem=document.getElementById("elem");
@@ -72,6 +79,8 @@
 			
 			elem.addEventListener("blur",function(e){
 				// elem.style.display="none"
+				container.innerHTML=elem.value;
+				// teh avbove line is making the textarea disaapear when the blur function is activated
 				console.log("blur function has been fired")
 				localStorage.setItem("text",elem.value);
 			})

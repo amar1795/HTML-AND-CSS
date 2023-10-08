@@ -4,17 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+        .link{
+            text-decoration: none;
+            color: black;
+        }
+        
+    </style>
 </head>
 <body>
-    
+
+
+   <div class="container">
+    Title
+    <ul class="ulLisst">
+        <li class="childli">1</li>
+        <li class="childli">2</li>
+        <li class="childli">3</li>
+        <li class="childli">4</li>
+    </ul>
+   </div>
+
+   <h1 class="heading">go to code with harry.com </h1>
+    <a class="link" href="https://www.codewithharry.com/">here</a>
 
     <script>
 
+        let container=document.querySelector(".ulLisst");
+        let childclass=document.querySelectorAll(".childli");
+
+        let elem=document.createElement("li");
+        let text=document.createTextNode("hey this is the created li")
+        elem.append(text)
+        container.firstElementChild.append(elem)
+        
+        console.log(container.children)
+
+
+
+
+        let heading=document.querySelector(".heading");
+        let link=document.querySelector(".link")
+            heading.append(link)
+           
+
+            
+        
+            // let variOne = document.createElement("h1");
+// variOne.innerHTML = "Go to code with harry";
+// variOne.setAttribute("id", "myid");
+// variOne.setAttribute("class", "myclass");
+
+// let forBodyTag = document.querySelector("body");
+// //console.log(forTag); //uncomment it and check have selected whole body tag
+// forBodyTag.append(variOne); //append varione with bodytag
+
+// let link = document.createElement("a");
+// link.innerHTML = "<b>Go now</b>";
+// link.setAttribute("href", "https://www.codewithharry.com");
+// link.setAttribute("id", "link");
+// link.setAttribute("class", "link");
+
+// variOne.append(link); // the link variable will append with variOne variable
 
 
 
     </script>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>
