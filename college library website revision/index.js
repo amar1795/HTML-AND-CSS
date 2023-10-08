@@ -16,17 +16,107 @@ function Display() {
 
 }
 
+
+
+let storage=[];
+
+Display.prototype.addStorage=function (book){
+
+    bookvalue={
+        name:book.name,
+        author:book.author,
+        type:book.type,       
+    }
+
+
+    storage.push(bookvalue);
+
+    localStorage.setItem("book",JSON.stringify(storage))
+}
+
+
+Display.prototype.checkStorage=function (book){
+
+    let value=JSON.parse(localStorage.getItem("book"));
+
+    if(value === null)
+    {
+        storage=[];
+    }
+    else
+    {
+        storage=JSON.parse(localStorage.getItem("book"));
+        console.log("this is storage"+storage)
+
+        tableBody = document.getElementById('tableBody');
+        tableBody.innerHTML=""
+        storage.forEach((element,index) => {   
+        let uiString = `<tr >
+                    <td>${element.name}</td>
+                    <td>${element.author}</td>
+                    <td>${element.type}</td>
+                    <td>
+                        <button type="submit" id=${index} class="btn btn-danger delete-btn" onclick={deletefunc(this.id)} >Delete Book</button>
+                        </td>
+                </tr>`;
+        tableBody.innerHTML += uiString;
+            
+        });
+    }
+
+   
+}
+
+
+
+
+
+
 // Add methods to display prototype
 Display.prototype.add = function (book) {
     console.log("Adding to UI");
+    
     tableBody = document.getElementById('tableBody');
-    let uiString = `<tr>
+    let uiString = `<tr >
                         <td>${book.name}</td>
                         <td>${book.author}</td>
                         <td>${book.type}</td>
-                    </tr>`;
+                        <td>
+                        <button type="submit"  class="btn btn-danger delete-btn">Delete Book</button>                          
+                        </td>
+
+                        
+                    </tr>
+                    `;
     tableBody.innerHTML += uiString;
 }
+
+
+
+
+function deletefunc(id) {
+console.log("delet function is called");
+storage=JSON.parse(localStorage.getItem("book"));
+storage.splice(id,1)
+localStorage.setItem("book",JSON.stringify(storage)) 
+
+let display2 = new Display();
+
+display2.checkStorage();
+
+
+}
+
+
+// implementing the delete function
+Display.prototype.delete = function (id) {
+
+    storage=JSON.parse(localStorage.getItem("book"));
+    let value= storage.splice(id,1)
+
+   
+}
+
 
 // Implement the clear function
 Display.prototype.clear = function () {
@@ -43,6 +133,8 @@ Display.prototype.validate = function (book) {
         return true;
     }
 }
+
+
 Display.prototype.show = function (type, displayMessage) {
     let message = document.getElementById('message');
     message.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
@@ -57,6 +149,23 @@ Display.prototype.show = function (type, displayMessage) {
 
 }
 
+
+// delete functionality
+// let deletebtn =document.querySelectorAll(".delete-btn");
+
+// deletebtn.forEach((e)=>{
+// e.addEventListener("click",deletefunc())
+// })
+
+// function deletefunc(params) {
+//     let delete1=new Display();
+//     delete1.delete(id);
+//     delete1.checkStorage();
+//     // call the delete function
+// }
+
+
+let display = new Display();
 
 // Add submit event listener to libraryForm
 let libraryForm = document.getElementById('libraryForm');
@@ -86,10 +195,14 @@ function libraryFormSubmit(e) {
 
     let display = new Display();
 
+    // display.checkStorage(book);
+   
     if (display.validate(book)) {
 
         display.add(book);
+        display.addStorage(book);
         display.clear();
+        display.checkStorage();
         display.show('success', 'Your book has been successfully added')
     }
     else {
@@ -98,4 +211,13 @@ function libraryFormSubmit(e) {
     }
 
     e.preventDefault();
+}
+
+
+
+
+window.onload = function() {
+    // Code to run when the page loads
+  
+    display.checkStorage();
 }
