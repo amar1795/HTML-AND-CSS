@@ -30,14 +30,15 @@
 		let textArea=document.querySelector('.textarea');
 		let val=localStorage.getItem("text");
 
-		// if(val == null)
-		// {
-		// 	localStorage.setItem("text","Currently no text is here ,please click here to edit it");
-
-		// }
-		let texttoadd;
-		if(val == null )
+		if(val == null)
 		{
+			localStorage.setItem("text","Currently no text is here ,please click here to edit it");
+			
+		}
+		let texttoadd;
+		if(val == 0 )
+		{
+
 			texttoadd=document.createTextNode("Currently no text is here ,please click here to edit it ");
 			// texttoadd="Currently no text is here ,please click here to edit it ";
 			
@@ -71,13 +72,24 @@
 
 				textarea=1;	
 				container.innerHTML=`<textarea name="" class="textarea" id="elem" cols="30" rows="5"  >${html}</textarea>`
+				
+
+				
 								
 			}
 			
 			let elem=document.getElementById("elem");
-			console.log("the textare value is "+elem.value)
+			if(elem==null)
+			{
+				textarea=0;	
+			}
+
+			else{
+
+				// console.log("the textare value is "+elem.value)
 			
-			elem.addEventListener("blur",function(e){
+				elem.addEventListener("blur",function(e){
+				// textarea=0;
 				// elem.style.display="none"
 				container.innerHTML=elem.value;
 				// teh avbove line is making the textarea disaapear when the blur function is activated
@@ -85,7 +97,13 @@
 				localStorage.setItem("text",elem.value);
 			})
 			
-			// elem.style.display="none"	
+			// elem.style.display="none"
+
+
+
+			}
+
+				
 			
 
 		})

@@ -59,9 +59,9 @@ Display.prototype.checkStorage=function (book){
                         <button type="submit" id=${index} class="btn btn-danger delete-btn" onclick={deletefunc(this.id)} >Delete Book</button>
                         </td>
                 </tr>`;
-        tableBody.innerHTML += uiString;
-            
-        });
+                
+                tableBody.innerHTML += uiString;
+            });
     }
 
    
@@ -104,13 +104,13 @@ display2.checkStorage();
 
 
 // implementing the delete function
-Display.prototype.delete = function (id) {
+// Display.prototype.delete = function (id) {
 
-    storage=JSON.parse(localStorage.getItem("book"));
-    let value= storage.splice(id,1)
+//     storage=JSON.parse(localStorage.getItem("book"));
+//     let value= storage.splice(id,1)
 
    
-}
+// }
 
 
 
@@ -122,18 +122,22 @@ Display.prototype.delete = function (id) {
     search.addEventListener("input",searchfunc)
 
     function searchfunc() {
+        let d= new Display;
+        d.search();
 
-        storage=JSON.parse(localStorage.getItem("book"));
-
+        
+    }
+    
+    
+    
+ Display.prototype.search = function () {
         let tableBody = document.getElementById('tableBody');
-
 
         console.log("this is search function")
 
-        let bookNameCell;
         for (let i = 0; i < tableBody.rows.length; i++) {
             let row = tableBody.rows[i];
-             bookNameCell = row.cells[0]; 
+            let bookNameCell = row.cells[0]; 
             let bookName = bookNameCell.textContent.toLowerCase();
             let searchTerm = search.value.toLowerCase();
     
@@ -143,17 +147,7 @@ Display.prototype.delete = function (id) {
                 row.style.display = "none";
             }
         }
-    }
-    
-    
-    
-    
-
-        
-    
-
-   
-
+}
 
 
 // Implement the clear function
